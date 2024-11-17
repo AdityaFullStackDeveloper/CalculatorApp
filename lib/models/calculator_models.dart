@@ -1,17 +1,27 @@
 class CalculatorModel {
-  String input = '';
-  String result = '0';
+  String _input = '';
+  String _result = '';
 
-  void clear() {
-    input = '';
-    result = '0';
-  }
+  String get input => _input;
+
+  String get result => _result;
 
   void appendInput(String value) {
-    input += value;
+    _input += value;
   }
 
-  void setResult(String newResult) {
-    result = newResult;
+  void setResult(String value) {
+    _result = value;
+  }
+
+  void clear() {
+    _input = '';
+    _result = '';
+  }
+
+  void backspace() {
+    if (_input.isNotEmpty) {
+      _input = _input.substring(0, _input.length - 1);
+    }
   }
 }
